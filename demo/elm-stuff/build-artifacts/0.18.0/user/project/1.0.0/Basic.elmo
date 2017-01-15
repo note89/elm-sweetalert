@@ -1,0 +1,446 @@
+var _user$project$Basic_ops = _user$project$Basic_ops || {};
+_user$project$Basic_ops['=>'] = F2(
+	function (v0, v1) {
+		return {ctor: '_Tuple2', _0: v0, _1: v1};
+	});
+var _user$project$Basic$sweetPStyle = {
+	ctor: '::',
+	_0: A2(_user$project$Basic_ops['=>'], 'color', '#797979'),
+	_1: {
+		ctor: '::',
+		_0: A2(_user$project$Basic_ops['=>'], 'font-size', '16px'),
+		_1: {
+			ctor: '::',
+			_0: A2(_user$project$Basic_ops['=>'], 'text-align', 'center'),
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Basic_ops['=>'], 'font-weight', '300'),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Basic_ops['=>'], 'position', 'relative'),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Basic_ops['=>'], 'text-align', 'inherit'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Basic_ops['=>'], 'float', 'none'),
+							_1: {
+								ctor: '::',
+								_0: A2(_user$project$Basic_ops['=>'], 'margin', '0'),
+								_1: {
+									ctor: '::',
+									_0: A2(_user$project$Basic_ops['=>'], 'padding', '0'),
+									_1: {
+										ctor: '::',
+										_0: A2(_user$project$Basic_ops['=>'], 'line-height', 'normal'),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$Basic$sweetStyle = {
+	ctor: '::',
+	_0: A2(_user$project$Basic_ops['=>'], 'background-color', 'white'),
+	_1: {
+		ctor: '::',
+		_0: A2(_user$project$Basic_ops['=>'], 'width', '478px'),
+		_1: {
+			ctor: '::',
+			_0: A2(_user$project$Basic_ops['=>'], 'padding', '17px'),
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Basic_ops['=>'], 'border-radius', '5px'),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Basic_ops['=>'], 'text-align', 'center'),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Basic_ops['=>'], 'position', 'fixed'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Basic_ops['=>'], 'left', '50%'),
+							_1: {
+								ctor: '::',
+								_0: A2(_user$project$Basic_ops['=>'], 'top', '50%'),
+								_1: {
+									ctor: '::',
+									_0: A2(_user$project$Basic_ops['=>'], 'margin-left', '-256px'),
+									_1: {
+										ctor: '::',
+										_0: A2(_user$project$Basic_ops['=>'], 'margin-top', '-200px'),
+										_1: {
+											ctor: '::',
+											_0: A2(_user$project$Basic_ops['=>'], 'overflow', 'hidden'),
+											_1: {
+												ctor: '::',
+												_0: A2(_user$project$Basic_ops['=>'], 'display', 'block'),
+												_1: {
+													ctor: '::',
+													_0: A2(_user$project$Basic_ops['=>'], 'z-index', '2000'),
+													_1: {
+														ctor: '::',
+														_0: A2(_user$project$Basic_ops['=>'], 'opacity', '1'),
+														_1: {ctor: '[]'}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$Basic$sweetButtonStyle = {
+	ctor: '::',
+	_0: A2(_user$project$Basic_ops['=>'], 'background-color', '#AEDEF4'),
+	_1: {
+		ctor: '::',
+		_0: A2(_user$project$Basic_ops['=>'], 'color', 'white'),
+		_1: {
+			ctor: '::',
+			_0: A2(_user$project$Basic_ops['=>'], 'border', 'none'),
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Basic_ops['=>'], 'box-shadow', 'none'),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Basic_ops['=>'], 'font-size', '17px'),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Basic_ops['=>'], 'font-weight', '500'),
+						_1: {
+							ctor: '::',
+							_0: A2(_user$project$Basic_ops['=>'], 'border-radius', '5px'),
+							_1: {
+								ctor: '::',
+								_0: A2(_user$project$Basic_ops['=>'], 'padding', '10px 32px'),
+								_1: {
+									ctor: '::',
+									_0: A2(_user$project$Basic_ops['=>'], 'margin', '26px 5px 0 5px'),
+									_1: {
+										ctor: '::',
+										_0: A2(_user$project$Basic_ops['=>'], 'cursor', 'pointer'),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$Basic$sweetH2Style = {
+	ctor: '::',
+	_0: A2(_user$project$Basic_ops['=>'], 'color', '#575757'),
+	_1: {
+		ctor: '::',
+		_0: A2(_user$project$Basic_ops['=>'], 'font-size', '30px'),
+		_1: {
+			ctor: '::',
+			_0: A2(_user$project$Basic_ops['=>'], 'text-align', 'center'),
+			_1: {
+				ctor: '::',
+				_0: A2(_user$project$Basic_ops['=>'], 'font-weight', '600'),
+				_1: {
+					ctor: '::',
+					_0: A2(_user$project$Basic_ops['=>'], 'text-transform', 'none'),
+					_1: {
+						ctor: '::',
+						_0: A2(_user$project$Basic_ops['=>'], 'position', 'relative'),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	}
+};
+var _user$project$Basic$sweetAlertStyle = {
+	ctor: '::',
+	_0: A2(_user$project$Basic_ops['=>'], 'display', 'block'),
+	_1: {
+		ctor: '::',
+		_0: A2(_user$project$Basic_ops['=>'], 'margin-top', '-104px'),
+		_1: {ctor: '[]'}
+	}
+};
+var _user$project$Basic$displayStyle = {
+	ctor: '::',
+	_0: A2(_user$project$Basic_ops['=>'], 'display', 'none'),
+	_1: {ctor: '[]'}
+};
+var _user$project$Basic$alert = A2(
+	_elm_lang$html$Html$div,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('sweet-alert showSweetAlert visible'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$style(
+				A2(_elm_lang$core$Basics_ops['++'], _user$project$Basic$sweetAlertStyle, _user$project$Basic$sweetStyle)),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$div,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('icon error'),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$displayStyle),
+					_1: {ctor: '[]'}
+				}
+			},
+			{
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$span,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('x-mark'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$span,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('line left'),
+								_1: {ctor: '[]'}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$span,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('line right'),
+									_1: {ctor: '[]'}
+								},
+								{ctor: '[]'}),
+							_1: {ctor: '[]'}
+						}
+					}),
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('icon warning'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$displayStyle),
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$span,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('body'),
+							_1: {ctor: '[]'}
+						},
+						{ctor: '[]'}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$span,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('dot'),
+								_1: {ctor: '[]'}
+							},
+							{ctor: '[]'}),
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('icon info'),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$displayStyle),
+							_1: {ctor: '[]'}
+						}
+					},
+					{ctor: '[]'}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('icon success'),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$displayStyle),
+								_1: {ctor: '[]'}
+							}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$span,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('line tip'),
+									_1: {ctor: '[]'}
+								},
+								{ctor: '[]'}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$span,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('line long'),
+										_1: {ctor: '[]'}
+									},
+									{ctor: '[]'}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$div,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('placeholder'),
+											_1: {ctor: '[]'}
+										},
+										{ctor: '[]'}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$div,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('fix'),
+												_1: {ctor: '[]'}
+											},
+											{ctor: '[]'}),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('icon custom'),
+								_1: {
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$displayStyle),
+									_1: {ctor: '[]'}
+								}
+							},
+							{ctor: '[]'}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$h2,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$sweetH2Style),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('test one two'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$p,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$style(
+											A2(
+												_elm_lang$core$Basics_ops['++'],
+												{
+													ctor: '::',
+													_0: A2(_user$project$Basic_ops['=>'], 'display', 'block'),
+													_1: {ctor: '[]'}
+												},
+												_user$project$Basic$sweetPStyle)),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('yeee what he said'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$button,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('cancel'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$displayStyle),
+												_1: {ctor: '[]'}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Cancel'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$button,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('confirm'),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$style(_user$project$Basic$sweetButtonStyle),
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('OK'),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	});
