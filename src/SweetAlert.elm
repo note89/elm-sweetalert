@@ -44,7 +44,9 @@ sweetOverlayStyle =
 
 
 type alias SweetAlertConfig msg =
-    { onOkClick : msg
+    { title : String
+    , text : String
+    , onOkClick : msg
     , visible : Bool
     }
 
@@ -53,11 +55,11 @@ type alias SweetAlertConfig msg =
 -- alert : SweetAlertConfig
 
 
-alert { visible, onOkClick } =
+alert { visible, onOkClick, title, text } =
     if visible then
         div []
             [ overlay
-            , basicAlert onOkClick
+            , basicAlert onOkClick title text
             ]
     else
         div [] []
@@ -67,7 +69,7 @@ alert { visible, onOkClick } =
 -- basicAlert : SweetAlertConfig msg -> Html msg
 
 
-basicAlert onOkClick =
+basicAlert onOkClick title textPrime =
     div
         [ class "sweet-alert showSweetAlert visible"
         , style <| sweetAlertStyle ++ sweetStyle
@@ -101,11 +103,11 @@ basicAlert onOkClick =
         , div [ class "icon custom", style displayStyle ]
             []
         , h2 [ style sweetH2Style ]
-            [ text "test one two" ]
+            [ text title ]
         , p [ style <| [ "display" => "block" ] ++ sweetPStyle ]
-            [ text "yeee what he said" ]
+            [ text textPrime ]
         , button [ class "cancel", style displayStyle ]
-            [ text "Cancel" ]
+            [ text textPrime ]
         , button
             [ class "confirm"
             , style sweetButtonStyle

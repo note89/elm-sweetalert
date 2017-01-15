@@ -96,5 +96,7 @@ view model =
         , SweetAlert.alert
             { visible = model.showSweetAlert
             , onOkClick = Toggle
+            , title = "Here's a message!"
+            , text = "It's pretty, isn't it"
             }
         ]
