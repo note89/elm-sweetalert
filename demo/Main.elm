@@ -94,9 +94,11 @@ view model =
         [ node "link" [ rel "stylesheet", href "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" ] []
         , button [ onClick Toggle, style sweetButtonStyle ] [ text "click me" ]
         , SweetAlert.alert
-            { visible = model.showSweetAlert
-            , onOkClick = Toggle
-            , title = "Here's a message!"
-            , text = "It's pretty, isn't it"
-            }
+            <| SweetAlert.config
+                ({ visible = model.showSweetAlert
+                 , onOkClick = Toggle
+                 , title = "Here's a message!"
+                 , text = "It's pretty, isn't it"
+                 }
+                )
         ]

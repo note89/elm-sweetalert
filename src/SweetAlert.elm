@@ -1,6 +1,6 @@
 module SweetAlert exposing (..)
 
-import Html exposing (..)
+import Html exposing (Html, div, p, h2, span, button)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 
@@ -43,19 +43,41 @@ sweetOverlayStyle =
 -- alert : Html msg
 
 
-type alias SweetAlertConfig msg =
+type Config msg
+    = Config
+        { title : String
+        , text : String
+        , onOkClick : msg
+        , visible : Bool
+        }
+
+
+
+--
+
+
+config :
     { title : String
     , text : String
     , onOkClick : msg
     , visible : Bool
     }
+    -> Config msg
+config { title, text, onOkClick, visible } =
+    Config
+        { title = title
+        , text = text
+        , onOkClick = onOkClick
+        , visible = visible
+        }
 
 
 
 -- alert : SweetAlertConfig
 
 
-alert { visible, onOkClick, title, text } =
+alert : Config msg -> Html msg
+alert (Config { visible, onOkClick, title, text }) =
     if visible then
         div []
             [ overlay
@@ -66,10 +88,10 @@ alert { visible, onOkClick, title, text } =
 
 
 
--- basicAlert : SweetAlertConfig msg -> Html msg
+-- basicAlert : Html msg -> String -> String -> Html msg
 
 
-basicAlert onOkClick title textPrime =
+basicAlert onOkClick title text =
     div
         [ class "sweet-alert showSweetAlert visible"
         , style <| sweetAlertStyle ++ sweetStyle
@@ -103,17 +125,17 @@ basicAlert onOkClick title textPrime =
         , div [ class "icon custom", style displayStyle ]
             []
         , h2 [ style sweetH2Style ]
-            [ text title ]
+            [ Html.text title ]
         , p [ style <| [ "display" => "block" ] ++ sweetPStyle ]
-            [ text textPrime ]
+            [ Html.text "yeee what he said" ]
         , button [ class "cancel", style displayStyle ]
-            [ text textPrime ]
+            [ Html.text text ]
         , button
             [ class "confirm"
             , style sweetButtonStyle
             , onClick onOkClick
             ]
-            [ text "OK" ]
+            [ Html.text "OK" ]
         ]
 
 
