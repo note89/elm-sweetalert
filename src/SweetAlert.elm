@@ -106,7 +106,7 @@ sweetOverlayStyle =
 type Config msg
     = Config
         { title : String
-        , text : String
+        , text : Maybe String
         , onOkClick : msg
         }
 
@@ -117,7 +117,7 @@ type Config msg
 
 config :
     { title : String
-    , text : String
+    , text : Maybe String
     , onOkClick : msg
     }
     -> Config msg
@@ -183,10 +183,13 @@ basicAlert onOkClick title text =
             []
         , h2 [ style sweetH2Style ]
             [ Html.text title ]
-        , p [ style <| [ "display" => "block" ] ++ sweetPStyle ]
-            [ Html.text "yeee what he said" ]
-        , button [ class "cancel", style displayStyle ]
-            [ Html.text text ]
+        , case text of
+            Just txt ->
+                p [ style <| [ "display" => "block" ] ++ sweetPStyle ]
+                    [ Html.text txt ]
+
+            Nothing ->
+                div [] []
         , button
             [ class "confirm"
             , style sweetButtonStyle

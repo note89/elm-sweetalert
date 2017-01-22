@@ -26,13 +26,15 @@ main =
 
 
 type alias Model =
-    { alert : SweetAlert.Model
+    { alertBasic : SweetAlert.Model
+    , alertText : SweetAlert.Model
     }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( { alert = first SweetAlert.init
+    ( { alertBasic = first SweetAlert.init
+      , alertText = first SweetAlert.init
       }
     , Cmd.none
     )
@@ -43,18 +45,26 @@ init =
 
 
 type Msg
-    = Alert SweetAlert.Msg
+    = AlertBasic SweetAlert.Msg
+    | AlertText SweetAlert.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Alert subMsg ->
+        AlertBasic subMsg ->
             let
-                ( alert, alertCmd ) =
-                    SweetAlert.update subMsg model.alert
+                ( alertBasic, alertCmd ) =
+                    SweetAlert.update subMsg model.alertBasic
             in
-                ( { model | alert = alert }, Cmd.map Alert alertCmd )
+                ( { model | alertBasic = alertBasic }, Cmd.map AlertBasic alertCmd )
+
+        AlertText subMsg ->
+            let
+                ( alertText, alertCmd ) =
+                    SweetAlert.update subMsg model.alertText
+            in
+                ( { model | alertText = alertText }, Cmd.map AlertText alertCmd )
 
 
 
@@ -64,7 +74,8 @@ update msg model =
 subscriptions : Model -> Sub Msg
 subscriptions model =
     Sub.batch
-        [ Sub.map Alert (SweetAlert.subscriptions model.alert)
+        [ Sub.map AlertBasic (SweetAlert.subscriptions model.alertBasic)
+        , Sub.map AlertText (SweetAlert.subscriptions model.alertText)
         ]
 
 
@@ -82,7 +93,7 @@ sweetButtonStyle =
     , "font-weight" => "500"
     , "border-radius" => "5px"
     , "padding" => "10px 32px"
-    , "margin" => "26px 5px 0 5px"
+    , "margin" => "10px 5px 10px 5px"
     , "cursor" => "pointer"
     ]
 
@@ -102,14 +113,28 @@ view model =
     div [ style bodyStyle ]
         -- REMOVE THIS at some point, we want to use elm for animation and styleing, cuz reasons hehe.
         [ node "link" [ rel "stylesheet", href "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" ] []
-        , button [ onClick (Alert <| SweetAlert.Show), style sweetButtonStyle ] [ text "click me" ]
+        , div [ style [ "flex-direction" => "row" ] ]
+            [ div [] [ text "A basic message" ]
+            , button [ onClick (AlertBasic <| SweetAlert.Show), style sweetButtonStyle ] [ text "Try me!" ]
+            , div [] [ text "A title with a text under" ]
+            , button [ onClick (AlertText <| SweetAlert.Show), style sweetButtonStyle ] [ text "Try me!" ]
+            ]
         , SweetAlert.alert
             (SweetAlert.config
-                ({ onOkClick = (Alert <| SweetAlert.Hide)
+                ({ onOkClick = (AlertBasic <| SweetAlert.Hide)
                  , title = "Here's a message!"
-                 , text = "It's pretty, isn't it"
+                 , text = Nothing
                  }
                 )
             )
-            model.alert
+            model.alertBasic
+        , SweetAlert.alert
+            (SweetAlert.config
+                ({ onOkClick = (AlertText <| SweetAlert.Hide)
+                 , title = "Here's a message!"
+                 , text = Just "It's pretty, isn't it"
+                 }
+                )
+            )
+            model.alertText
         ]
