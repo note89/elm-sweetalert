@@ -3,6 +3,7 @@ module SweetAlert exposing (..)
 import Html exposing (Html, div, p, h2, span, button)
 import Html.Attributes exposing (..)
 import Html.Events exposing (..)
+import Animation
 
 
 -- import Alert.Types exposing (Model, Msg(..), Position(..), AlertType(..))
@@ -14,8 +15,67 @@ import Html.Events exposing (..)
 
 
 type alias Model =
-    { visible : Bool
+    { style : Animation.State
+    , visible : Bool
     }
+
+
+type Msg
+    = Animate Animation.Msg
+    | Show
+    | Hide
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+    Animation.subscription Animate [ model.style ]
+
+
+init =
+    ( { style =
+            Animation.style [ Animation.opacity 0.0 ]
+      , visible = False
+      }
+    , Cmd.none
+    )
+
+
+update msg model =
+    case msg of
+        Show ->
+            ( { model
+                | visible = True
+                , style =
+                    Animation.interrupt
+                        [ Animation.to
+                            [ Animation.opacity 1.0
+                            ]
+                        ]
+                        model.style
+              }
+            , Cmd.none
+            )
+
+        Hide ->
+            ( { model
+                | visible = False
+                , style =
+                    Animation.interrupt
+                        [ Animation.to
+                            [ Animation.opacity 0.0
+                            ]
+                        ]
+                        model.style
+              }
+            , Cmd.none
+            )
+
+        Animate animMsg ->
+            ( { model
+                | style = Animation.update animMsg model.style
+              }
+            , Cmd.none
+            )
 
 
 overlay : Html msg
@@ -48,7 +108,6 @@ type Config msg
         { title : String
         , text : String
         , onOkClick : msg
-        , visible : Bool
         }
 
 
@@ -60,15 +119,13 @@ config :
     { title : String
     , text : String
     , onOkClick : msg
-    , visible : Bool
     }
     -> Config msg
-config { title, text, onOkClick, visible } =
+config { title, text, onOkClick } =
     Config
         { title = title
         , text = text
         , onOkClick = onOkClick
-        , visible = visible
         }
 
 
@@ -76,10 +133,10 @@ config { title, text, onOkClick, visible } =
 -- alert : SweetAlertConfig
 
 
-alert : Config msg -> Html msg
-alert (Config { visible, onOkClick, title, text }) =
-    if visible then
-        div []
+alert : Config msg -> Model -> Html msg
+alert (Config { onOkClick, title, text }) model =
+    if model.visible then
+        div (Animation.render model.style)
             [ overlay
             , basicAlert onOkClick title text
             ]

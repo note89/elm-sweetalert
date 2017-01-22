@@ -5,6 +5,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Random
 import SweetAlert
+import Tuple exposing (first)
 
 
 (=>) =
@@ -25,13 +26,16 @@ main =
 
 
 type alias Model =
-    { showSweetAlert : Bool
+    { alert : SweetAlert.Model
     }
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model False, Cmd.none )
+    ( { alert = first SweetAlert.init
+      }
+    , Cmd.none
+    )
 
 
 
@@ -39,14 +43,18 @@ init =
 
 
 type Msg
-    = Toggle
+    = Alert SweetAlert.Msg
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
-        Toggle ->
-            ( { model | showSweetAlert = not model.showSweetAlert }, Cmd.none )
+        Alert subMsg ->
+            let
+                ( alert, alertCmd ) =
+                    SweetAlert.update subMsg model.alert
+            in
+                ( { model | alert = alert }, Cmd.map Alert alertCmd )
 
 
 
@@ -55,7 +63,9 @@ update msg model =
 
 subscriptions : Model -> Sub Msg
 subscriptions model =
-    Sub.none
+    Sub.batch
+        [ Sub.map Alert (SweetAlert.subscriptions model.alert)
+        ]
 
 
 
@@ -92,13 +102,14 @@ view model =
     div [ style bodyStyle ]
         -- REMOVE THIS at some point, we want to use elm for animation and styleing, cuz reasons hehe.
         [ node "link" [ rel "stylesheet", href "https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" ] []
-        , button [ onClick Toggle, style sweetButtonStyle ] [ text "click me" ]
+        , button [ onClick (Alert <| SweetAlert.Show), style sweetButtonStyle ] [ text "click me" ]
         , SweetAlert.alert
-            <| SweetAlert.config
-                ({ visible = model.showSweetAlert
-                 , onOkClick = Toggle
+            (SweetAlert.config
+                ({ onOkClick = (Alert <| SweetAlert.Hide)
                  , title = "Here's a message!"
                  , text = "It's pretty, isn't it"
                  }
                 )
+            )
+            model.alert
         ]
